@@ -1,46 +1,41 @@
-import { AnsNotIn,getRandomInt,getRandomIntMN,ArrayEqual,ArrayNotIn } from "/QuiZGenQ/QData/GobalFunction.js";
+import { AnsNotIn, getRandomInt, getRandomIntMN, ArrayEqual, ArrayNotIn } from "/QuiZGenQ/QData/GobalFunction.js";
 
-export function GenRandomQ8(){
+export function GenRandomQ8() {
 
     let Ans = [];
-    let TF = [false,false,false,false]
+    let TF = [false, false, false, false]
 
-    const namelist = ["ชิ","วิน","สายฟ้า","โฟ","ต้นตาล","ภีม"]
-    const question_text = "รถยนต์คันหนึ่งวิ่งด้วยความเรื่องคงที่ u เมตรต่อวินาที ขณะที่อยู่ห่างสิ่งกีดขวางเป็นระยะทาง x เมตร คนขับตัดสินใจห้ามล้อรถโดยเสียเวลา t วินาที ก่อนที่ห้ามล้อจะทำงาน เมื่อห้ามล้อทำงานแล้ว รถจะต้องลดความเร็วในอัตราเท่าใด จึงทำให้รถหยุดพอดีเมื่อสิ่งขีดขวางนั้น".split(" ")
+    const namelist = ["ชิ", "วิน", "สายฟ้า", "โฟ", "ต้นตาล", "ภีม"]
+    const question_text = "วัตถุก้อนหนึ่งถูกปล่อยให้ตกลงมาในแนวดิ่งอีกก้อนตกลงมาด้วยความเร็วต้น u m/s จงหาว่าอีกนานเท่าไรวัตถุทั้งสองจึงจะอยู่ห่างกัน h เมตร (กำหนดค่าแรงโน้มถ่วง เท่ากับ 10 เมตร/วินาทีกำลังสอง)".split(" ")
 
     // QuestionCode
 
-    let Name = namelist[getRandomInt((namelist.length)-1)]
+    let Name = namelist[getRandomInt((namelist.length) - 1)]
 
     let u = (getRandomIntMN(1, 100))
-    let x = (getRandomIntMN(1, 100))
-    let t = (getRandomIntMN(1, 100))
+    let h = (getRandomIntMN(1, 100))
 
-    while (!Number.isInteger(u/(2*x*(u*t-1)))) {
+    let result = parseFloat(((18 ** 2) * 10 / (2 * (u ** 2))).toFixed(2));
+    while (isNaN(result) || !isFinite(result) || result <= 1) {
         u = (getRandomIntMN(1, 100))
-        x = (getRandomIntMN(1, 100))
-        t = (getRandomIntMN(1, 100))
+        h = (getRandomIntMN(1, 100))
+        result = parseFloat(((18 ** 2) * 10 / (2 * (u ** 2))).toFixed(2));
     }
 
-
     for (let i = 0; i < question_text.length; i++) {
-        if (question_text[i] == "name"){
+        if (question_text[i] == "name") {
             question_text[i] = Name
         }
-        else if (question_text[i] == "u"){
+        else if (question_text[i] == "u") {
             question_text[i] = u
         }
-        else if (question_text[i] == "x"){
-            question_text[i] = x
-        }
-        else if (question_text[i] == "t"){
-            question_text[i] = t
+        else if (question_text[i] == "h") {
+            question_text[i] = h
         }
     }
 
     // Anscode
 
-    let result = u/(2*x*(u*t-1))
     let choice = [result]
 
     // RandomAnsCode
@@ -48,14 +43,14 @@ export function GenRandomQ8(){
     let choiceAmount = 4
 
     while (choice.length < choiceAmount) {
-        let WrongChoice = choice[(getRandomIntMN(0,(choice.length)-1))]+(1*((-1)**(getRandomIntMN(0,1))))
-        
-        while (WrongChoice <= 0) {
-            WrongChoice = choice[(getRandomIntMN(0,(choice.length)-1))]+(1*((-1)**(getRandomIntMN(0,1))))
+        let WrongChoice = parseFloat((choice[(getRandomIntMN(0, (choice.length) - 1))] + (1 * ((-1) ** (getRandomIntMN(0, 1))))).toFixed(2));
+
+        while (WrongChoice <= 1) {
+            WrongChoice = parseFloat((choice[(getRandomIntMN(0, (choice.length) - 1))] + (1 * ((-1) ** (getRandomIntMN(0, 1))))).toFixed(2));
         }
 
-        if (AnsNotIn(choice,WrongChoice)) {
-            choice = [...choice,WrongChoice]
+        if (AnsNotIn(choice, WrongChoice)) {
+            choice = [...choice, WrongChoice]
         }
     }
 
@@ -64,16 +59,16 @@ export function GenRandomQ8(){
     let questionPrint = question_text.join(" ")
 
     choice.sort()
-    
+
     for (let j = 0; j < choice.length; j++) {
 
-        let textAns = ([j+1,choice[j]].join(") "))
+        let textAns = ([j + 1, choice[j]].join(") "))
 
-        if (choice[j] == result){
-            Ans = [...Ans,{ text: textAns, correct: true}]
+        if (choice[j] == result) {
+            Ans = [...Ans, { text: textAns, correct: true }]
         }
         else {
-            Ans = [...Ans,{ text: textAns, correct: false}]
+            Ans = [...Ans, { text: textAns, correct: false }]
         }
     }
 
@@ -83,5 +78,5 @@ export function GenRandomQ8(){
     };
     // console.log(box) // check
 
-    return box ;
+    return box;
 }

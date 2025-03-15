@@ -38,7 +38,7 @@ export function RunAll(NumberOfQuestion) {
         if (availableNumbers.length === 0) {
             // Reset available numbers
             // availableNumbers = [0,1,2,3,6,16,22];
-            availableNumbers = [8]; // test function
+            availableNumbers = [8,4,18]; // test function
         }
 
         // Pick a random number from available numbers
@@ -57,9 +57,9 @@ export function RunAll(NumberOfQuestion) {
         else if (NQ == 3) {
             questions = [...questions, GenRandomQ3()];
         } 
-        // else if (NQ == 4) {
-        //     questions = [...questions, GenRandomQ4()];
-        // } 
+        else if (NQ == 4) {
+            questions = [...questions, GenRandomQ4()];
+        } 
         else if (NQ == 6) {
                 questions = [...questions, GenRandomQ6()];
             } 
@@ -69,9 +69,9 @@ export function RunAll(NumberOfQuestion) {
         else if (NQ == 16) {
             questions = [...questions, GenRandomQ16()];
         } 
-        // else if (NQ == 18) {
-        //     questions = [...questions, GenRandomQ18()];
-        // }
+        else if (NQ == 18) {
+            questions = [...questions, GenRandomQ18()];
+        }
         else if (NQ == 22) {
             questions = [...questions, GenRandomQ22()];
         } 
