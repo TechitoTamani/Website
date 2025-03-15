@@ -1,121 +1,56 @@
 import { AnsNotIn,getRandomInt,getRandomIntMN,ArrayEqual,ArrayNotIn } from "/QuiZGenQ/QData/GobalFunction.js";
 
-// input
-
-let equation  = "1*t*h"; // Use Math.sqrt for internal calculations
-let limitRandom = {t:[1,10], h:[10,100]}; // Update limitRandom to only include t
-const question_text_Default = "ในการปรับให้หยดน้ำ หยดจากปลายหลอดบิวเรตต์ชนิดหนึ่ง เมื่อหยดถึงพื้นอีกหยดหนึ่งถัดไปก็หยดทันที เมื่อปลายบิวเรตต์สูง h ซม. หยดน้ำจะหยดได้กี่หยดต่อ t วินาที"
-
-//--//
-let variables = [];
-let randomValues = {};
-let result;
-
-function generateRandomValues() {
-    // Extract variables (letters) from the equation
-    const variableNames = equation.match(/[a-zA-Z_]\w*/g) || [];
-    variables = Array.from(new Set(variableNames)); // Unique variable names
-    randomValues = {}; // Reset previous random values
-
-    // Generate random values for each variable
-    variables.forEach((variable) => {
-        const randomValue = Math.floor(Math.random() * limitRandom[variable][1]) + limitRandom[variable][0];  // Random value between 1 and 10
-        randomValues[variable] = randomValue;
-        // console.log(variable) //check
-    });
-}
-
-// function calculateAnswer() {
-//     console.log("Generating new number")
-//     // Continuously try until the result is an integer
-//     do {
-//         let evalEquation = equation;
-
-//         // Replace variables with their random values
-//         for (const [key, value] of Object.entries(randomValues)) {
-//             evalEquation = evalEquation.replace(new RegExp(`\\b${key}\\b`, 'g'), value);
-//         }
-
-//         try {
-//             // Evaluate the modified equation
-//             result = eval(evalEquation);
-
-//             // Check if the result is an integer
-//             if (Number.isInteger(result)) {
-//                 break;  // If result is an integer, exit the loop
-//             } else {
-//                 // If the result is not an integer, generate new random values
-//                 generateRandomValues();
-//             }
-//         } catch (error) {
-//             console.log("There was an error evaluating the equation.");
-//             return;
-//         }
-//     } while (!Number.isInteger(result));  // Loop until an integer result is found
-
-//     // variables.forEach((variable) => {   
-//     //     console.log(randomValues[variable]) // check
-//     //     console.log(variable) // check
-//     // }); 
-// }
-
-function calculateAnswerNotInt() {
-
-    let evalEquation = equation;
-
-    // Replace variables with their random values
-    for (const [key, value] of Object.entries(randomValues)) {
-        evalEquation = evalEquation.replace(new RegExp(`\\b${key}\\b`, 'g'), value);
-    }
-
-    try {
-        // Evaluate the modified equation
-        result = eval(evalEquation);
-    } catch (error) {
-        console.log("There was an error evaluating the equation.");
-        return;
-    }
-}
-
 export function GenRandomQ8(){
 
-    generateRandomValues();
-    // calculateAnswerNotInt(); // Use the function that doesn't require integer results
-
-    let question_text = question_text_Default.split(" ")
-
     let Ans = [];
-    let textAns ;
+    let TF = [false,false,false,false]
 
-    const namelist = ["ชิ","วิน","สายฟ้า","โฟ","ต้นตาล","ภีม","แซค"]
+    const namelist = ["ชิ","วิน","สายฟ้า","โฟ","ต้นตาล","ภีม"]
+    const question_text = "ในการปรับให้หยดน้ำ หยดจากปลายหลอดบิวเรตต์ชนิดหนึ่ง เมื่อหยดถึงพื้นอีกหยดหนึ่งถัดไปก็หยดทันที เมื่อปลายบิวเรตต์สูง h ซม. หยดน้ำจะหยดได้กี่หยดต่อ t วินาที".split(" ")
 
     // QuestionCode
 
     let Name = namelist[getRandomInt((namelist.length)-1)]
 
-    variables.forEach((variable) => {
-        for (let i = 0; i < question_text.length; i++) {
-            if (question_text[i] == "name"){
-                question_text[i] = ""
-                question_text[i+1] = Name+question_text[i+1]
-            }
-            else if (question_text[i] == variable){
-                question_text[i] = randomValues[variable]
-            }
+    let t = (getRandomIntMN(1, 20))
+    let h = (getRandomIntMN(1, 100))
+
+    while (!Number.isInteger(10*t*((5/h)**(1/2)))) {
+        t = (getRandomIntMN(1, 20));
+        h = (getRandomIntMN(1, 100));
+    }
+
+
+    for (let i = 0; i < question_text.length; i++) {
+        if (question_text[i] == "name"){
+            question_text[i] = Name
         }
-    });
+        else if (question_text[i] == "t"){
+            question_text[i] = t
+        }
+        else if (question_text[i] == "h"){
+            question_text[i] = h
+        }
+    }
+
+    // Anscode
+
+    let result = 10*t*((5/h)**(1/2))
+    let choice = [result]
 
     // RandomAnsCode
-    let choice = [`${randomValues['t'] * 10}√50 / √${randomValues['h']}`]; // Correct answer formatted as 100√50 / √20
-    let choiceAmount = 4;
+
+    let choiceAmount = 4
+
     while (choice.length < choiceAmount) {
-        // Generate a random number for t in the incorrect answer
-        let randomT = getRandomIntMN(1, 10); // Random number between 1 and 10
-        let randomH = getRandomIntMN(10, 100); // Random number for h
-        let WrongChoice = `${randomT * 10}√50 / √${randomH}`;
+        let WrongChoice = choice[(getRandomIntMN(0,(choice.length)-1))]+(1*((-1)**(getRandomIntMN(0,1))))
         
-        if (AnsNotIn(choice, WrongChoice)) {
-            choice = [...choice, WrongChoice];
+        while (WrongChoice <= 0) {
+            WrongChoice = choice[(getRandomIntMN(0,(choice.length)-1))]+(1*((-1)**(getRandomIntMN(0,1))))
+        }
+
+        if (AnsNotIn(choice,WrongChoice)) {
+            choice = [...choice,WrongChoice]
         }
     }
 
@@ -127,9 +62,9 @@ export function GenRandomQ8(){
     
     for (let j = 0; j < choice.length; j++) {
 
-        textAns = ([j+1,choice[j]].join(") "))
+        let textAns = ([j+1,choice[j]].join(") "))
 
-        if (choice[j] === `${randomValues['t'] * 10}√50 / √${randomValues['h']}`){
+        if (choice[j] == result){
             Ans = [...Ans,{ text: textAns, correct: true}]
         }
         else {
@@ -141,14 +76,7 @@ export function GenRandomQ8(){
         question: questionPrint,
         answers: Ans
     };
+    // console.log(box) // check
 
     return box ;
 }
-
-// const questionData = GenRandom();
-
-// document.getElementById('Question').innerText = `${1}) ${questionData.question}`;
-// document.getElementById('Ans1').innerText = questionData.answers[0].text;
-// document.getElementById('Ans2').innerText = questionData.answers[1].text;
-// document.getElementById('Ans3').innerText = questionData.answers[2].text;
-// document.getElementById('Ans4').innerText = questionData.answers[3].text;
