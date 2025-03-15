@@ -521,7 +521,7 @@ document.getElementById('confirm').addEventListener("click", async (event) => {
         }
 
         // Redirect to test page
-        window.location.href = "Home.html";
+        window.location.href = "../../Home/Home.html";
     } catch (error) {
         console.error("Error updating user info: ", error);
         alert("Failed to update number of questions. Please try again.");

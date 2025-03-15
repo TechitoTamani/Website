@@ -165,59 +165,6 @@ if (loggedInUserId) {
                     var lineChart = new ApexCharts(document.querySelector('#line-chart'), chartOptions);
                     lineChart.render();
                     // generate graph
-                    //Calculate Slope//
-                    function calculateSlope(seriesData) {
-                      if (seriesData.length < 2) return null; // Not enough points
-                      let x1 = 1;
-                      let y1 = seriesData[0];
-                      let x2 = seriesData.length;
-                      let y2 = seriesData[seriesData.length - 1];
-                      return (y2 - y1) / (x2 - x1);
-                    }
-
-                    function calculateSlopesByOne(seriesData) {
-                      let slopes = [];
-                      for (let i = 0; i < seriesData.length - 1; i++) {
-                        let x1 = i + 1, y1 = seriesData[i]; // Current point
-                        let x2 = i + 2, y2 = seriesData[i + 1]; // Next point
-                    
-                        let Value = (y2 - y1) / (x2 - x1);
-                        slopes.push(Value);
-                      }
-                      return slopes;
-                    }
-
-                    // Example usage:
-                    let LinearData = chartOptions.series[0].data;
-                    let CircularData = chartOptions.series[1].data;
-                    let ProjectileData = chartOptions.series[2].data;
-
-                    // Linear_slope
-                    let Linear_slope = calculateSlope(LinearData);
-                    let LinearSlopeByOne = calculateSlopesByOne(LinearData);
-                    if (Linear_slope !== null) {
-                      console.log(`The slope of the line is: ${Linear_slope.toFixed(2)}`); // Limit to 2 decimal places
-                      console.log(`The slopes of the line by one is: ${LinearSlopeByOne}`); // Limit to 2 decimal places
-                    } else {
-                      console.log("Not enough points to calculate a slope.");
-                    }
-                    if (Linear_slope > 0 && Linear_slope <= 1) {
-                      document.getElementById('slope').style.color = "green";
-                      document.getElementById('analysis_text').innerText = `Gradual Improvement : You have made noticeable progress, albeit at a gradual pace. While the improvement is modest, it shows that your efforts are yielding positive results. With continued focus and the refinement of your study strategies, you can achieve even greater advancements.`;
-                    } else if (Linear_slope > 1 && Linear_slope <= 2) {
-                      document.getElementById('slope').style.color = "#00ccff";
-                      document.getElementById('analysis_text').innerText = `Good Improvement : Your academic performance is steadily improving. The consistent increase in your scores reflects your dedication and hard work. I encourage you to keep up the excellent effort and explore additional challenges to further enhance your understanding.`;
-                    } else if (Linear_slope > 2) {
-                      document.getElementById('slope').style.color = "#00ccff";
-                    } else if (Linear_slope < 0) {
-                      document.getElementById('slope').style.color = "red";
-                    } else {
-                      document.getElementById('slope').style.color = "black";
-                    }
-                    document.getElementById('slope').innerText = `${Linear_slope !== null ? Linear_slope.toFixed(2) : 'N/A'}`;
-                    // Linear_slope
-
-                    //Calculate Slope//
 
                     console.log(`✅ ${length} divs generated successfully!`);
                 }
