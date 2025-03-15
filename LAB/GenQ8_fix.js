@@ -6,18 +6,20 @@ export function GenRandomQ8(){
     let TF = [false,false,false,false]
 
     const namelist = ["ชิ","วิน","สายฟ้า","โฟ","ต้นตาล","ภีม"]
-    const question_text = "ในการปรับให้หยดน้ำ หยดจากปลายหลอดบิวเรตต์ชนิดหนึ่ง เมื่อหยดถึงพื้นอีกหยดหนึ่งถัดไปก็หยดทันที เมื่อปลายบิวเรตต์สูง h ซม. หยดน้ำจะหยดได้กี่หยดต่อ t วินาที".split(" ")
+    const question_text = "รถยนต์คันหนึ่งวิ่งด้วยความเรื่องคงที่ u เมตรต่อวินาที ขณะที่อยู่ห่างสิ่งกีดขวางเป็นระยะทาง x เมตร คนขับตัดสินใจห้ามล้อรถโดยเสียเวลา t วินาที ก่อนที่ห้ามล้อจะทำงาน เมื่อห้ามล้อทำงานแล้ว รถจะต้องลดความเร็วในอัตราเท่าใด จึงทำให้รถหยุดพอดีเมื่อสิ่งขีดขวางนั้น".split(" ")
 
     // QuestionCode
 
     let Name = namelist[getRandomInt((namelist.length)-1)]
 
-    let t = (getRandomIntMN(1, 20))
-    let h = (getRandomIntMN(1, 100))
+    let u = (getRandomIntMN(1, 100))
+    let x = (getRandomIntMN(1, 100))
+    let t = (getRandomIntMN(1, 100))
 
-    while (!Number.isInteger(10*t*((5/h)**(1/2)))) {
-        t = (getRandomIntMN(1, 20));
-        h = (getRandomIntMN(1, 100));
+    while (!Number.isInteger(u/(2*x*(u*t-1)))) {
+        u = (getRandomIntMN(1, 100))
+        x = (getRandomIntMN(1, 100))
+        t = (getRandomIntMN(1, 100))
     }
 
 
@@ -25,17 +27,20 @@ export function GenRandomQ8(){
         if (question_text[i] == "name"){
             question_text[i] = Name
         }
+        else if (question_text[i] == "u"){
+            question_text[i] = u
+        }
+        else if (question_text[i] == "x"){
+            question_text[i] = x
+        }
         else if (question_text[i] == "t"){
             question_text[i] = t
-        }
-        else if (question_text[i] == "h"){
-            question_text[i] = h
         }
     }
 
     // Anscode
 
-    let result = 10*t*((5/h)**(1/2))
+    let result = u/(2*x*(u*t-1))
     let choice = [result]
 
     // RandomAnsCode
