@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>Quiz App - GenQ</title>
+        <link rel="stylesheet" href="test.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400..700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script type="module" src="test.js"></script>
+    </head>
+    <body>
+        <div class="box">
+            <div class="top">
+                <div class="icon">
+                    <a href="../../Home/Home.html"><i class="fa fa-angle-left" style="font-size:36px;color:white "></i></a>
+                </div>
+                <div class="top_question" id="Toppart">
+                    <button class="backfront" id="backQbutton"><</button>
+                    <button class="num" id="button1"></button>
+                    <button class="num" id="button2"></button>
+                    <button class="num" id="button3"></button>
+                    <button class="num" id="button4"></button>
+                    <button class="num" id="button5"></button>
+                    <button class="num" id="button_selection">...</button>
+                    <div class="select_section" id="select_section">
+                        <input type="number" id="section_select" min="1">
+                    </div>
+                    <button class="backfront" id="nextQbutton">></button>
+                    <button class="End" style="display: none;" id="Endbutton">End</button>
+                </div>
+                <div class="timer">
+                    <p id="countdown"></p>
+                </div>
+            </div>
+            <div class="question"><p><span id="Question"></span></p></div>
+            <p><span id="point"></span></p>
+            <!-- //// -->
+            <p id="doyou">Would you like to save this test</p>
+            <button id="confirm" class="confirm">Yes</button>
+            <button id="cancle" class="cancle">No</button>
+            <!-- //// -->
+            <button id = "Ans1" class="choice" style="margin-top: 1%;"></button>
+            <button id = "Ans2" class="choice"></button>
+            <button id = "Ans3" class="choice"></button>
+            <button id = "Ans4" class="choice"></button>
+        </div>
+    </body>
+</html>

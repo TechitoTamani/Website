@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Equation Evaluator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 60%;
+            max-width: 700px;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .output {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .variable-inputs {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .variable-inputs div {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Math Equation Evaluator</h1>
+
+    <label for="equation">Enter Math Equation (e.g., x*2 + y*3):</label>
+    <input type="text" id="equation" placeholder="Enter equation" />
+
+    <div id="variableInputs" class="variable-inputs">
+        <!-- Dynamic variable inputs will be created here -->
+    </div>
+
+    <button onclick="generateVariableInputs()">Evaluate Equation</button>
+    <button onclick="calculateAnswer()">Ans</button>
+
+    <div id="output" class="output">
+        <!-- Answer will be displayed here -->
+    </div>
+</div>
+
+<script>
+    let variables = [];
+
+    // Function to dynamically generate input fields for each variable
+    function generateVariableInputs() {
+        const equation = document.getElementById('equation').value;
+        
+        if (!equation) {
+            document.getElementById('output').innerHTML = 'Please enter a valid equation.';
+            return;
+        }
+
+        // Find all unique variable names (letters only)
+        const variableNames = new Set(equation.match(/[a-zA-Z_]\w*/g) || []);
+        variables = Array.from(variableNames);
+
+        const variableInputsContainer = document.getElementById('variableInputs');
+        variableInputsContainer.innerHTML = ''; // Clear previous inputs
+
+        // Generate an input field for each variable
+        variables.forEach((variable) => {
+            const div = document.createElement('div');
+            div.innerHTML = `<label for="${variable}">${variable}:</label><input type="number" id="${variable}" placeholder="Value for ${variable}" />`;
+            variableInputsContainer.appendChild(div);
+        });
+    }
+
+    // Function to calculate the answer when "Ans" button is clicked
+    function calculateAnswer() {
+        const equation = document.getElementById('equation').value;
+        if (!equation) {
+            document.getElementById('output').innerHTML = 'Please enter a valid equation.';
+            return;
+        }
+
+        let isValid = true;
+        let codeEquation = equation;
+
+        try {
+            // Replace variables in the equation with their assigned values
+            variables.forEach((variable) => {
+                const value = parseFloat(document.getElementById(variable).value);
+                if (!isNaN(value)) {
+                    codeEquation = codeEquation.replace(new RegExp(`\\b${variable}\\b`, 'g'), value);
+                } else {
+                    isValid = false;
+                    document.getElementById('output').innerHTML = `Please define a value for variable: ${variable}`;
+                    return;
+                }
+            });
+
+            if (isValid) {
+                // Calculate the result of the equation
+                const result = eval(codeEquation); // Using eval to calculate the result
+                document.getElementById('output').innerHTML = `
+                    <strong>Equation:</strong> ${equation}<br>
+                    <strong>Values:</strong> ${variables.map(variable => `${variable}=${document.getElementById(variable).value}`).join(', ')}<br>
+                    <strong>Result:</strong> ${result}
+                `;
+            }
+        } catch (error) {
+            document.getElementById('output').innerHTML = 'There was an error with the equation.';
+        }
+    }
+</script>
+
+</body>
+</html>

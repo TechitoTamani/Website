@@ -1,0 +1,150 @@
+.background{
+    background-color: #f4f4f4;
+    margin: 0;
+    justify-content: center;
+    font-family: 'Kanit', sans-serif;
+}
+.top_bar ul{
+    font-family: 'Kanit', sans-serif;
+    list-style-type: none;
+    background-color: #549abd;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.top_bar a {
+    font-family: 'Kanit', sans-serif;
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+    display: block;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.top_bar li {
+    float: left;
+}
+.top_bar a:hover {
+    background-color: #5c9cbc;
+}
+.top_bar li {
+    float: left;
+}
+/*5 navbar*/
+.home{
+    margin-left: 67.5%;
+    margin-top: 5px;
+}
+.test{
+    margin-top: 5px;
+}
+.about{
+    margin-top: 5px;
+}
+.contract{
+    margin-top: 5px;
+}
+.accout{
+    margin-top: 5px;
+}
+/*5 navbar*/
+.GenQ{
+    font-size: 25px;
+    margin-left: 10px;
+}
+.logo{
+    width: 76px;
+    height: 45px;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+.text{
+    text-align: center;
+    color: black;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 40;
+    margin-top: 50px;
+}
+button{
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    padding: 10px 0;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    width: 8%;
+    background: #68abc4;
+    color: white;
+    margin-left: 46%;
+}
+button:hover{
+    background: #5a96ab;
+}
+.topic{
+    font-family: "Markazi Text", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 30;
+    margin-left: 15px;
+    margin-top: 10px;
+    margin-bottom: 0;
+    color: aliceblue;
+}
+
+.graph{
+    width: 80%;
+    height: 60%;
+    margin-left: 10%;
+}
+
+/* graph development */
+.middle{
+    display: flex;
+    align-items: center;     /* Vertically center */
+    height: 75%;
+    width: 95%;
+    margin-left: 2.5%;
+    margin-top: 2%;
+    background-color: #ececec;
+    border-radius: 30px;
+}
+.card {
+    width: 50%;
+    max-width: 680px;
+    padding: 15px;
+    position: flex;
+    justify-content: center;
+    background-color: #f7f6f6;
+    border-radius: 30px;
+    margin-left: 3%;
+}
+  .card-content {
+    position: relative;
+    z-index: 3;
+}
+.slope_info{
+    font-family: "Markazi Text", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 30;
+    margin-left: 15px;
+    margin-top: 10px;
+    margin-bottom: 0;
+    width: 50%;
+    height: 100%;
+}
+.slope{
+    width: 90%;
+    height: 90%;
+    margin-left: 5%;
+}
+  /* graph development */

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check if Input Box Has Text Automatically</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        input {
+            padding: 10px;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        .result {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Check if Input Box Has Text</h2>
+    
+    <input type="text" id="textInput" placeholder="Enter some text..." oninput="checkText()">
+    <p id="result" class="result"></p>
+
+    <script>
+        // Function to check if the input box has text
+        function checkText() {
+            const inputBox = document.getElementById('textInput');
+            const result = document.getElementById('result');
+
+            if (inputBox.value.trim() !== "") {
+                result.innerText = "True: The input box has text.";
+            } else {
+                result.innerText = "False: The input box is empty.";
+            }
+        }
+    </script>
+
+</body>
+</html>

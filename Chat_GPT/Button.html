@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Button Darker by Number</title>
+  <style>
+    .button-container {
+      display: flex;
+      gap: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <input type="number" id="inputNumber" placeholder="Enter a number (1-5)" min="1" max="5">
+  <div class="button-container">
+    <button id="button1">Button 1</button>
+    <button id="button2">Button 2</button>
+    <button id="button3">Button 3</button>
+    <button id="button4">Button 4</button>
+    <button id="button5">Button 5</button>
+  </div>
+
+  <script>
+    const buttons = document.querySelectorAll("button");  // Get all buttons
+    const inputNumber = document.getElementById("inputNumber");
+
+    // Event listener to darken the selected button based on input number
+    inputNumber.addEventListener("input", () => {
+      const num = parseInt(inputNumber.value);
+      
+      // Loop through buttons and reset their background color
+      buttons.forEach((button, index) => {
+        if (!isNaN(num) && num === index + 1) {
+          // Darken the selected button based on the number
+          const shade = 255 - (num * 40); // Darker as the number increases
+          button.style.backgroundColor = `rgb(${shade}, ${shade}, ${shade})`;
+          button.style.color = "white"; // Make the text white for visibility
+        } else {
+          // Reset background color for non-selected buttons
+          button.style.backgroundColor = "";
+          button.style.color = "";
+        }
+      });
+    });
+  </script>
+</body>
+</html>

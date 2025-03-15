@@ -1,0 +1,78 @@
+<html>
+    <head>
+        <title>GenQ</title>
+        <link rel="stylesheet" href="Home.css">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href='https://fonts.googleapis.com/css?family=Kanit&subset=thai,latin' rel='stylesheet' type='text/css'>
+        <link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400..700&display=swap" rel="stylesheet">
+    </head>
+    <body class="background">
+        <nav class="top_bar">
+            <ul>
+                <li class="GenQ"><img class="logo" src="../../Picture/Logo_White.png"></li>
+                <li class="home"><a href="">Home</a></li>
+                <li class="test"><a href="">Test</a></li>
+                <li class="about"><a href="../Analysis/analysis.html">Analysis</a></li>
+                <li class="contract"><a href="">Contract</a></li>
+                <li class="Accout"><a href="../Account/account.html">Account</a></li>
+            </ul>
+        </nav>
+        <div class="text" id="quote"></div>
+        <h1 class="headlesson">Today's Lesson</h1>
+        <div class="lesson">
+            <div class="lesson1">
+                <div class="pic1"><img src="../../Picture/car1.png"></div>
+                <h1 class="topic">Linear Motion</h1>
+                <p class="explain">Linear motion, also called rectilinear motion, is one-dimensional motion along a straight line, and can therefore be described mathematically using only one spatial dimension.</p>
+                <a href="../LinearMotion/Info/linearInfo.html"><button class="learnmore">Learn More</button></a>
+            </div>
+            <div class="lesson2">
+                <div class="pic1"><img src="../../Picture/ball1.png"></div>
+                <h1 class="topic">Projectile Motion</h1>
+                <p class="explain">Projectile motion is a form of motion experienced by an object or particle (a projectile) that is projected in a gravitational field, such as from Earth's surface, and moves along a curved path under the action of gravity only.</p>
+                <a href="../Test_analysis.html"><button class="learnmore">Learn More</button></a>
+            </div>
+            <div class="lesson3">
+                <div class="pic1"><img src="../../Picture/circle1.png"></div>
+                <h1 class="topic">Circular Motion</h1>
+                <p class="explain">circular motion is a movement of an object along the circumference of a circle or rotation along a circular arc. It can be uniform, with a constant rate of rotation and constant tangential speed, or non-uniform with a changing rate of rotation.</p>
+                <a href=""><button class="learnmore">Learn More</button></a>
+            </div>
+        </div>
+        <script>
+            // Array of quotes
+            const quotes = [
+                "Learn from yesterday, live for today, hope for tomorrow. The important thing is not to stop questioning. - Albert Einstein"
+                ,"Prediction is very difficult, especially if it's about the future. - Neils Bohr"
+                ,"However difficult life may seem, there is always something you can do and succeed at. - Stephen Hawking"
+                ,"The science of today is the technology of tomorrow. - Edward Teller"
+                ,"It is nice to know that the computer understands the problem. But I would like to understand it too. - Eugene Wigner"
+                ,"God used beautiful mathematics in creating the world. - Paul Dirac"
+                ,"Social connection is such a basic feature of human experience that when we are deprived of it, we suffer. - Leonard Mlodinow"
+                ,"Physics is experience, arranged in economical order. - Ernst Mach"
+                ,"Knowledge once gained casts a light beyond its own immediate boundaries. - John Tyndall"
+                ,"Science in textbooks is not fun. But if you start doing science yourself, you will find delight. - Masatoshi Koshiba"
+                ,"There are just two things you can do to win a Nobel prize - have a good idea and pursue it effectively. - Ivar Giaever"
+                ,"I am become death, the destroyer of worlds. - J. Robert Oppenheimer"
+                ,"For a successful technology, reality must take precedence over public relations, for Nature cannot be fooled. - Richard P. Feynman"
+                ,"Exploring the unknown requires tolerating uncertainty. - Brian Greene"
+                ,"Quantum physics is not a step forward, it is a new way to understand reality. - Neils Bohr"
+                ,"Seeing a world inside our world. A world of energy and paradox that not everyone can aceept. - Neils Bohr"
+                ,"Theory will get you only so far - Ernest Lawrence"
+            ];
+    
+            // Function to get a random quote
+            function getRandomQuote() {
+                const randomIndex = Math.floor(Math.random() * quotes.length);
+                return quotes[randomIndex];
+            }
+    
+            // Display the random quote on page load
+            document.getElementById("quote").textContent = getRandomQuote();
+        </script>
+    </body>
+</html>

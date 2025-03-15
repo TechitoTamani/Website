@@ -1,0 +1,73 @@
+
+def Q4(section,document,Ansdoc):
+
+  from docx import Document
+  import random
+
+  question = "section วัตถุหนึ่งเคลื่อนที่ด้วยความเร็ว u m/s เมื่อเวลาผ่านไป t วินาที ความเร็วของวัตถุเปลี่ยนเป็น v m/s จงหาความเร่งเฉลี่ย".split()
+
+  # QuestionCode
+
+  u = random.randint(1,100)
+  v = random.randint(1,100)
+  t = random.randint(1,10)
+    
+  while (v-u)%t != 0 :
+    u = random.randint(1,100)
+    v = random.randint(1,100)
+    t = random.randint(1,10)
+
+  for i in range (len(question)) :
+    if question[i] == "section":
+          question[i] = "".join([str(section),")"])
+    elif question[i] == "u":
+        question[i] = str(u)
+    elif question[i] == "v":
+        question[i] = str(v)
+    elif question[i] == "t":
+        question[i] = str(t)
+
+  # AnsCode
+
+  Ans = (v-u)/t
+
+
+  # RandomAnsCode
+
+  choice = [Ans]
+
+  choiceAmount = 4
+
+  MinusPlusType = [1,2,5,10,20]
+
+  Num = random.randint(0,(len(MinusPlusType)-1))
+
+  if Ans % 5 != 0:
+     Num = random.randint(0,1)
+
+  while len(choice) < choiceAmount :
+
+    WrongChoice = choice[random.randint(0,(len(choice)-1))]+(MinusPlusType[Num]*((-1)**(random.randint(0,1))))
+
+    if WrongChoice not in choice :
+      choice.append(WrongChoice)
+
+
+  # PrintCode
+
+  questionDoc = " ".join(question)
+
+  document.add_paragraph(questionDoc)
+
+  choice.sort()
+
+  for i in range (choiceAmount):
+    document.add_paragraph(" ".join(["".join([str(i+1),"."]),str(choice[i])]))
+
+  for i in range (choiceAmount) :
+     if choice[i] == Ans :
+        Ansdoc.add_paragraph(" ".join(["".join([str(section),")"]),str(i+1)]))
+  # document.save("test.docx")
+
+# for i in range (1,3) :
+#     Q4(i,test1)

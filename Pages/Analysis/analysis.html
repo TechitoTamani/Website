@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <title>GenQ</title>
+        <link rel="stylesheet" href="analysis.css">
+        <script type="module" src="analysis.js" defer></script>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts" defer></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href='https://fonts.googleapis.com/css?family=Kanit&subset=thai,latin' rel='stylesheet' type='text/css'>
+        <link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400..700&display=swap" rel="stylesheet">
+    </head>
+    <body class="background">
+        <nav class="top_bar">
+            <ul>
+                <li class="GenQ"><img class="logo" src="../../Picture/Logo_White.png"></li>
+                <li class="home"><a href="../Home/Home.html">Home</a></li>
+                <li class="test"><a href="">Test</a></li>
+                <li class="about"><a href="">Analysis</a></li>
+                <li class="contract"><a href="">Contract</a></li>
+                <li class="Accout"><a href="../Account/account.html">Account</a></li>
+            </ul>
+        </nav>
+        <div class="middle">
+            <div class="card">
+                <div class="card-content">
+                    <div id="line-chart">
+
+                    </div>
+                </div>
+            </div>
+            <div class="slope_info">
+                <div class="slope">
+                    <div class="slope_text">
+                        <p>Slope: <span id="slope"></span></p>
+                    </div>
+                    <div class="slope_info">
+                        <div class="slope_text">
+                            <p>Analyze: <span id="analysis_text"></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- space between graph and container -->
+        <div id="container">
+
+        </div>
+    </body>
+</html>

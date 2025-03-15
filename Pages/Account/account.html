@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <title>GenQ</title>
+        <link rel="stylesheet" href="account.css">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href='https://fonts.googleapis.com/css?family=Kanit&subset=thai,latin' rel='stylesheet' type='text/css'>
+        <link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400..700&display=swap" rel="stylesheet">
+        <script type="module" src="account.js"></script>
+    </head>
+    <body class="background">
+        <nav class="top_bar">
+            <ul>
+                <li class="GenQ"><img class="logo" src="../../Picture/Logo_White.png"></li>
+                <li class="home"><a href="../Home/Home.html">Home</a></li>
+                <li class="test"><a href="#">Test</a></li>
+                <li class="about"><a href="../Analysis/analysis.html">Analysis</a></li>
+                <li class="contract"><a href="#">Contract</a></li>
+                <li class="Accout"><a href="../Account/account.html">Account</a></li>
+            </ul>
+        </nav>
+        <div class="whole_display">
+            <div class="left_panel">
+                <nav class="left_bar">
+                    <ul>
+                        <li class="profile"><a href="#">Profile</a></li>
+                        <li class="privacy"><a href="#">Privacy</a></li>
+                        <li class="friend"><a href="#">Friend</a></li>
+                        <li class="feedback"><a href="#">Feedback</a></li>
+                        <li class="setting"><a href="#">Setting</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="right_box">
+                <div class="top_info">
+                    <img class="icon" src="../../Picture/icon.png">
+                    <div class="name"><span id="loggedUserFName"></span></div>
+                    <div class="name"><span id="loggedUserLName"></span></div>
+                </div>
+                <div class="info">
+                    <div>Email: <span id="loggedUserEmail"></span></div>
+                    <hr class="line">
+                    <div>Tel: <input type="number" id="Tel"> <span id="tellephonenum" style="display: none;"></span></div>
+                    <hr class="line">
+                    <button id="submit" type="submit">submit</button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

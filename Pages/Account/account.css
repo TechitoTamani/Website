@@ -1,0 +1,139 @@
+
+.background{
+    background-color: #e3f5fe;
+    margin: 0px;
+    border-radius: 20px;
+}
+.img{
+    height: 100px;
+    width: 100px;
+}
+/*topbar*/
+.top_bar ul{
+    font-family: 'Kanit', sans-serif;
+    list-style-type: none;
+    background-color: #549abd;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.top_bar a {
+    font-family: 'Kanit', sans-serif;
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+    display: block;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.top_bar li {
+    float: left;
+}
+.top_bar a:hover {
+    background-color: #5c9cbc;
+}
+.top_bar li {
+    float: left;
+}
+.GenQ{
+    font-size: 25px;
+    margin-left: 10px;
+}
+.logo{
+    width: 76px;
+    height: 45px;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+.home{
+    margin-left: 67.5%;
+    margin-top: 5px;
+}
+.test{
+    margin-top: 5px;
+}
+.about{
+    margin-top: 5px;
+}
+.contract{
+    margin-top: 5px;
+}
+.accout{
+    margin-top: 5px;
+}
+/*5 navbar*/
+.right_box{
+    height: 673px;
+    width: 1386px;
+    background-color: rgb(234, 234, 234);
+}
+.whole_display{
+    display: flex;
+}
+/* left navbar */
+.left_panel{
+    background-color: #f4f4f4;
+    height: 673px;
+    width: 150px;
+}
+.profile{
+    margin-top: 170px;
+    background-color: #96c3da;
+}
+
+.left_bar ul{
+    list-style-type: none;
+    background-color: #f4f4f4;
+    padding: 0;
+    margin-left: 35px;
+    overflow: hidden;
+    height: 100%;
+    text-align: center;
+}
+.left_bar a{
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    padding: 15px;
+    display: block;
+    text-align: center;
+}
+.left_bar a:hover{
+    background-color: #c7c7c7;
+}
+.left_bar li{
+    float: left;
+}
+/* left navbar */
+.icon{
+    height: 120px;
+    width: 120px;
+    margin-left: 50px;
+    margin-top: 50px;
+}
+.top_info{
+    display: flex;
+}
+.name{
+    margin-top: 80px;
+    margin-left: 20px;
+    text-decoration: none;
+    font-size: 50px;
+}
+.info{
+    margin-left: 50px;
+    margin-top: 20px;
+    text-decoration: none;
+    font-size: 25px;
+}
+p{
+    margin-left: 200px;
+}
+.info div{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}

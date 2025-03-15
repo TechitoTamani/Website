@@ -1,0 +1,123 @@
+body {
+    background-color: #dee1e2;
+    margin: 0;
+    font-family: 'Kanit', sans-serif;
+    min-height: 100vh;
+}
+
+.box {
+    width: 80%;
+    height: 90%;
+    background-color: #f4f4f4;
+    margin: 2% auto;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.top {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background-color: #549abd;
+    width: 100%;
+    height: 10%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.choice {
+    width: 80%;
+    height: 10%;
+    background-color: #93c5de;
+    margin: 20px auto;
+    border-radius: 15px;
+    transition: transform 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.choice:hover {
+    transform: translateY(-3px);
+    background-color: #75b3d3;
+}
+
+.countdown {
+    font-size: 22px;
+    font-weight: 500;
+    color: #075680;
+    text-align: center;
+    margin: 15px 0;
+}
+
+h1 {
+    font-family: "Kanit", sans-serif;
+    font-size: 40px;
+    text-align: center;
+    color: white;
+    margin: 0;
+    padding: 15px 0;
+}
+
+.test_button {
+    font-family: "Kanit", sans-serif;
+    font-weight: 500;
+    font-size: 1.1rem;
+    padding: 12px 0;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    width: 50%;
+    background: #549abd;
+    color: white;
+    margin: 100px 25%;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.test_button:hover {
+    background: #075680;
+    transform: translateY(-2px);
+}
+
+.setting_button {
+    font-family: "Kanit", sans-serif;
+    font-weight: 500;
+    font-size: 2rem;
+    margin-left: 1%;
+    color: #075680;
+}
+
+input {
+    width: 50%;
+    height: 5%;
+    outline: none;
+    border: 1px solid #d0d0d0;
+    padding: 12px 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background: rgb(245, 245, 245);
+    margin-left: 5%;
+    font-family: 'Kanit', sans-serif;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus {
+    border-color: #549abd;
+    box-shadow: 0 0 8px rgba(84, 154, 189, 0.3);
+}
+
+/* Add labels for inputs */
+label {
+    display: block;
+    margin-left: 5%;
+    margin-bottom: 5px;
+    font-family: 'Kanit', sans-serif;
+    color: #075680;
+    font-weight: 500;
+}

@@ -1,0 +1,253 @@
+body{
+    background-color: #77bde0;
+    margin: 0;
+}
+.box{
+    width: 82%;
+    height: 90%;
+    background-color: #f4f4f4;
+    margin: auto;
+    margin-top: 2%;
+    border-radius: 20px;
+}
+.top{
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background-color: #549abd;
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: left;
+
+}
+.choice{
+    font-family: "Markazi Text", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 24px;
+    outline: none;
+    border: none;
+    width: 80%;
+    height: 10%;
+    background-color: #549abd;
+    margin-top: 1%;
+    border-radius: 20px;
+    text-decoration: none;
+    color: white;
+    margin-left: 10%;
+    text-align: left;
+    padding-left: 20px;
+}
+.choice:hover{
+    background: #25739b;
+    transition: 0.5s;
+}
+.timer{
+    font-family: "Markazi Text", serif;
+    color: white;
+    position: absolute;
+    font-size: 25px;
+    left: 85%;
+}
+.icon{
+    margin-left: 2%;
+    margin-top: 15px;
+}
+#countdown{
+    margin-top: 20px;
+    left: 0;
+    margin-left: 2px;
+}
+.question{
+    width: 97.5%;
+    height: 200px;
+    text-align: left;
+    font-size: 24px;
+    padding-left: 15px;
+}
+.top_question{
+    display: flex;
+    margin-left: 29%;
+    align-items: center;
+
+}
+.num{
+    width: 40px;
+    height: 40px;
+    background-color: #f4f4f4;
+    outline: none;
+    border-radius: 15px;
+    border:none;
+    margin-left: 5px;
+    font-family: "Markazi Text", serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+    font-size: 20;
+    transition: 0.5s;
+}
+.backfront{
+    width: 60px;
+    height: 40px;
+    background-color: #f4f4f4;
+    outline: none;
+    border-radius: 15px;
+    border:none;
+    margin-left: 5px;
+    font-family: "Markazi Text", serif;
+    font-optical-sizing: auto;
+    font-weight: 1000;
+    font-style: normal;
+    font-size: 20;
+    transition: 0.5s;
+}
+.num:hover{
+    width: 50px;
+    height: 50px;
+    transition: 0.5s;
+    margin-left: 5px;
+    font-size: 25;
+}
+.backfront:hover{
+    width: 70px;
+    height: 50px;
+    transition: 0.5s;
+    margin-left: 5px;
+    font-size: 25;
+}
+#button1{
+    background-color: #77bde0;
+    color: #ffffff;
+}
+.End{
+    width: 40px;
+    height: 40px;
+    background-color: #f4f4f4;
+    outline: none;
+    border-radius: 15px;
+    border:none;
+    margin-left: 5px;
+    font-family: "Markazi Text", serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+    font-size: 20;
+    transition: 0.5s;
+}
+.End:hover{
+    width: 50px;
+    height: 50px;
+    transition: 0.5s;
+    margin-left: 5px;
+    font-size: 25;
+}
+.select_section{
+    width: 50px;
+    height: 40px;
+    background-color: #f4f4f4;
+    outline: none;
+    border-radius: 15px;
+    border:none;
+    margin-left: 5px;
+    font-family: "Markazi Text", serif;
+    font-optical-sizing: auto;
+    font-weight: 1000;
+    font-style: normal;
+    font-size: 20;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+.select_section.show{
+    width: 50px;
+    height: 40px;
+    background-color: #f4f4f4;
+    outline: none;
+    border-radius: 15px;
+    border:none;
+    margin-left: 5px;
+    font-family: "Markazi Text", serif;
+    font-optical-sizing: auto;
+    font-weight: 1000;
+    font-style: normal;
+    font-size: 20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.select_section input{
+    height: 50%;
+    width: 70%;
+    transition: 0.5s;
+}
+#section_select::-webkit-outer-spin-button,
+#section_select::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.confirm{
+    font-family: "Markazi Text", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 24px;
+    outline: none;
+    border: none;
+    width: 70%;
+    height: 10%;
+    background-color: #77bde0;
+    margin-top: 1%;
+    border-radius: 20px;
+    text-decoration: none;
+    color: white;
+    margin-left: 10%;
+    text-align: left;
+    padding-left: 20px;
+    position: absolute;
+    left: 5%;
+    top:55%;
+    display: none;
+}
+.cancle{
+    font-family: "Markazi Text", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 24px;
+    outline: none;
+    border: none;
+    width: 70%;
+    height: 10%;
+    background-color: #77bde0;
+    margin-top: 1%;
+    border-radius: 20px;
+    text-decoration: none;
+    color: white;
+    margin-left: 10%;
+    text-align: left;
+    padding-left: 20px;
+    position: absolute;
+    left: 5%;
+    top: 70%;
+    display: none;
+}
+.confirm:hover{
+    background: #25739b;
+}
+.cancle:hover{
+    background: #25739b;
+}
+#point{
+    position: absolute;
+    font-size: 40px;
+    left: 45%;
+    top: 25%;
+}
+#doyou{
+    display: none;
+    position: absolute;
+    font-size: 36px;
+    left: 35%;
+    top: 40%;
+}
