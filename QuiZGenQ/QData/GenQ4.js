@@ -63,6 +63,7 @@ export function GenRandomQ4(){
 
     let questionPrint = question_text.join(" ")
 
+    
     choice.sort()
     
     for (let j = 0; j < choice.length; j++) {
